@@ -1,0 +1,29 @@
+.card{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    height: 22vh;
+    background-color: rgb(65, 65, 65);
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+.imageDiv{
+    width: 35%;
+}
+.info{
+width:  45%;
+text-align: left;
+}
+.info h2,.info p{
+    margin: 0px;
+}
+.btnDiv{
+    display: flex;
+    align-items: flex-end;
+}
+.btnDiv button{
+    padding: 10px 15px;
+    font-size: 20px;
+    background-color: rgb(182, 0, 0);
+    color: white;
+}

@@ -1,0 +1,116 @@
+
+.heading{
+    height: 33rem;
+    /* background-repeat: repeat; */
+    background-size: cover;
+    /* padding: 20px; */
+}
+.navbar{
+    /* border: solid; */
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    /* border: solid 1px; */
+    width: 82%;
+    left: 9%;
+    top: 1%;
+}
+
+.navbar__btn>button{
+    font-size: 23px;
+    margin: 15px;
+    background: transparent;
+    color: rgb(146, 146, 146);
+    border: none;
+}
+.navbar__btn>button:hover{
+    color: white;
+    cursor: pointer;
+}
+
+.navbar__btn>button.login{
+    background-color: rgb(190, 34, 34);
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.Search{
+    border: solid 3px;
+    border-radius: 10px;
+    margin: 10px 5% ;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 20px;
+    align-items: center;
+}
+.Search>input{
+    width: 80%;
+    padding: 5px;
+    background: transparent;
+    outline: none;
+    border: none;
+    color: rgb(209, 209, 209);
+}
+
+.Search input,.Search i,.Search button{
+    font-size: 22px;
+}
+.Search button,#location{
+    background-color: rgb(209, 0, 0);
+    color: white;
+    padding:  10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.body{
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 5%;
+}
+.search__filter{
+/* border: solid; */
+text-align: left;
+width: 22%;
+}
+.filter_head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filter_head button{
+    font-size: 18px;
+    padding: 10px 20px;
+    background-color:  rgb(209, 0, 0);
+    color: white;
+    border-radius: 10px;
+}
+
+.search__filter input{
+ width: 100%;
+ padding: 10px;
+ font-size: 18px;
+ outline: none;
+ border-radius: 5px;
+ background-color: rgb(65, 65, 65);
+border: none;
+color: white;
+}
+.search__filter p{
+font-size: 20px;
+font-weight: bold;
+}
+.price > input{
+
+    width: 20%;
+    margin-right: 5px;
+}
+.search__result{
+    /* border: solid 1px black; */
+    width: 72%;
+    overflow-y: scroll;
+    height: 70vh;
+
+    }
