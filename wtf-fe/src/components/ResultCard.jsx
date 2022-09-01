@@ -1,9 +1,17 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import styles from './card.module.css'
 
-export const ResultCard = ({gym_name,address1,city,plan_price,plan_name,distance_text}) => {
+export const ResultCard = ({user_id,gym_name,address1,city,plan_price,plan_name,distance_text}) => {
+ const navigate = useNavigate();
+const handleclick=(gym_id)=>{
+
+  navigate(`/gym_details/${gym_id}`)
+
+}
+ 
   return (
-    <div className={styles.card}>
+    <div onClick={()=>handleclick(user_id)} className={styles.card}>
       <div className={styles.imageDiv}><img src="" alt="Image of the gym" /></div>
       <div className={styles.info}>
         <h2>{gym_name}</h2>

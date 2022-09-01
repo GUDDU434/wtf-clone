@@ -3,9 +3,10 @@
     justify-content: space-between;
     padding: 10px;
     height: 22vh;
-    background-color: rgb(65, 65, 65);
+    background-color: rgb(17, 15, 15);
     margin-bottom: 10px;
     border-radius: 10px;
+    cursor: pointer;
 }
 .imageDiv{
     width: 35%;
@@ -26,4 +27,7 @@ text-align: left;
     font-size: 20px;
     background-color: rgb(182, 0, 0);
     color: white;
+    border:none;
+    border-radius: 10px;
+    cursor: pointer;
 }

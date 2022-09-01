@@ -4,20 +4,20 @@ import background from "./background.JPG";
 import { useState } from "react";
 import { useEffect } from "react";
 import { getBycity, getData } from "../redux/action";
-import {useDispatch, useSelector} from 'react-redux'
+import { useDispatch, useSelector } from "react-redux";
 import { ResultCard } from "./ResultCard";
 
 export const Home = () => {
-    const dispatch = useDispatch()
+  const [city,setCity] = useState("")
 
-
-
-    const { nearByGym,isLoading,isError} = useSelector((state)=>state)
-
-    // console.log(nearByGym,isLoading,isError)
+  const dispatch = useDispatch();
+  const { nearByGym, isLoading, isError } = useSelector((state) => state);
+  
   useEffect(() => {
-
+    initGeolocation();
   }, []);
+
+  
 
   const handleLocation = () => {
     initGeolocation();
@@ -33,10 +33,16 @@ export const Home = () => {
   }
 
   function success(position) {
-    console.log(position.coords.longitude);
-    console.log(position.coords.latitude);
-    let payload={lat:position.coords.latitude,long:position.coords.longitude}
-    getData(dispatch,payload);
+    let payload = {
+      lat: position.coords.latitude,
+      long: position.coords.longitude,
+    };
+    getData(dispatch, payload);
+  }
+
+  const handleSelect=(e)=>{
+    const {name,value} = e.target;
+    getBycity(dispatch,value)
   }
 
   return (
@@ -60,7 +66,7 @@ export const Home = () => {
       </div>
       <div className={styles.Search}>
         <i className="fa-solid fa-magnifying-glass"></i>
-        <input type="text" placeholder="Search gym name here" />
+        <input type="text" placeholder="Search gym name here" value={city} onChange={(e)=>setCity(e.target.value)}/>
         <i
           className="fa-solid fa-location-dot"
           id={styles.location}
@@ -85,14 +91,22 @@ export const Home = () => {
           </div>
           <div>
             <p>Cities</p>
-            <input type="text" placeholder="Enter city name" />
+            <select name="city" onChange={handleSelect}>
+              <option value="noida">Noida</option>
+              <option value="gaziabad">Gaziabad</option>
+              <option value="delhi">Delhi</option>
+              <option value="greater-noida">Greater Noida</option>
+            </select>
           </div>
         </div>
         <div className={styles.search__result}>
-            {isLoading ? <h1>Loading....</h1> : isError ? <h1>Error while fatching data</h1>:
-            nearByGym.map((elem)=>(
-                <ResultCard key={elem.user_id} {...elem}/>
-            ))}
+          {isLoading ? (
+            <h1>Loading....</h1>
+          ) : isError ? (
+            <h1>Error while fatching data</h1>
+          ) : (
+            nearByGym.map((elem) => <ResultCard key={elem.user_id} {...elem} />)
+          )}
         </div>
       </div>
     </div>

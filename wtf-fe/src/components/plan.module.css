@@ -1,0 +1,19 @@
+.plan{
+    /* border: solid 1px; */
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background-color: rgb(22, 19, 19);
+    margin-bottom: 10px;
+}
+.planNam h2,.planNam h3{
+    margin: 0px;
+    background-color: rgba(102, 218, 92, 0.89);
+}
+
+.planNam h2, span{
+    font-size: 15px;
+    font-weight: 0px;
+}
