@@ -9,7 +9,7 @@ export const GET_DATA_LOADING_PLAN = "GET_DATA_LOADING_PLAN";
 
 export const baseUrl = "https://devapi.wtfup.me";
 
-export const getData = (dispatch, Data) => {
+export const getData = (dispatch, Data, city) => {
   dispatch({
     type: GET_DATA_LOADING,
   });
@@ -17,11 +17,11 @@ export const getData = (dispatch, Data) => {
   axios
     .get(`${baseUrl}/gym/nearestgym?lat=${Data.lat}&long=${Data.long}`)
     .then(({ data }) => {
-      //   console.log(data);
+      console.log(data);
       if (data.status) {
         dispatch({
           type: GET_DATA,
-          payload: data.data,
+          payload: data,
         });
       } else {
         dispatch({
@@ -37,7 +37,7 @@ export const getData = (dispatch, Data) => {
     });
 };
 
-export const getBycity = (dispatch,city) => {
+export const getBycity = (dispatch, city) => {
   dispatch({
     type: GET_DATA_LOADING,
   });

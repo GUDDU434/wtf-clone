@@ -1,51 +1,65 @@
-.gymImageSlider{
-    /* border: solid; */
-    height: 75vh;
+.gymImageSlider {
+  /* border: solid; */
+  height: 75vh;
 }
-.backBtn{
-    position: absolute;
-    top: 4rem;
-    left: 1rem;
+.backBtn {
+  position: absolute;
+  top: 4rem;
+  left: 1rem;
 }
-.backBtn button,.backBtn i{
-    font-size: 22px;
-    cursor: pointer;
-}
-
-.backBtn button{
-    background: transparent;
-    color: white;
+.backBtn button,
+.backBtn i {
+  font-size: 22px;
+  cursor: pointer;
 }
 
-.bodyGymdetails{
-    margin: 10px 5%;
-    display: flex;
-    justify-content: space-between;
+.backBtn button {
+  background: transparent;
+  color: white;
 }
 
-
-.gymInfo{
-    width: 45%;
-    text-align: left;
+.bodyGymdetails {
+  margin: 10px 5%;
+  display: flex;
+  justify-content: space-between;
 }
 
-.gymInfo h1{
-    font-size: 50px;
-    margin: 0px;
-}
-.gymInfo p{
-    margin-bottom: 100px;
-
-}
-.address{
-    font-size: 30px;
-    margin-top: 15px;
+.gymInfo {
+  width: 45%;
+  text-align: left;
 }
 
-.gymPlan{
-    width: 50%;
-    border-radius: 10px;
-    background-color: rgb(36, 36, 36);
-    padding: 10px;
-    height: fit-content;
+.gymInfo h1 {
+  font-size: 50px;
+  margin: 0px;
+}
+.gymInfo p {
+  margin-bottom: 100px;
+}
+.address {
+  font-size: 30px;
+  margin-top: 15px;
+}
+
+.gymPlan {
+  width: 50%;
+  border-radius: 10px;
+  background-color: rgb(36, 36, 36);
+  padding: 10px;
+  height: fit-content;
+}
+
+.terms {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.term {
+  background-color: rgb(255, 255, 255);
+  color: white;
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  border-radius: 10px;
 }

@@ -8,16 +8,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { ResultCard } from "./ResultCard";
 
 export const Home = () => {
-  const [city,setCity] = useState("")
+  const [city, setCity] = useState("");
 
   const dispatch = useDispatch();
   const { nearByGym, isLoading, isError } = useSelector((state) => state);
-  
+
   useEffect(() => {
     initGeolocation();
+    console.log(nearByGym);
   }, []);
-
-  
 
   const handleLocation = () => {
     initGeolocation();
@@ -40,10 +39,10 @@ export const Home = () => {
     getData(dispatch, payload);
   }
 
-  const handleSelect=(e)=>{
-    const {name,value} = e.target;
-    getBycity(dispatch,value)
-  }
+  const handleSelect = (e) => {
+    const { name, value } = e.target;
+    getBycity(dispatch, value);
+  };
 
   return (
     <div>
@@ -66,7 +65,12 @@ export const Home = () => {
       </div>
       <div className={styles.Search}>
         <i className="fa-solid fa-magnifying-glass"></i>
-        <input type="text" placeholder="Search gym name here" value={city} onChange={(e)=>setCity(e.target.value)}/>
+        <input
+          type="text"
+          placeholder="Search gym name here"
+          value={city}
+          onChange={(e) => setCity(e.target.value)}
+        />
         <i
           className="fa-solid fa-location-dot"
           id={styles.location}
@@ -105,6 +109,7 @@ export const Home = () => {
           ) : isError ? (
             <h1>Error while fatching data</h1>
           ) : (
+            nearByGym &&
             nearByGym.map((elem) => <ResultCard key={elem.user_id} {...elem} />)
           )}
         </div>
