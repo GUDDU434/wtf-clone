@@ -3,24 +3,20 @@ import styles from "./home.module.css";
 import background from "./background.JPG";
 import { useState } from "react";
 import { useEffect } from "react";
-import { getBycity, getData } from "../redux/action";
+import { getBycity, getData, SEARCH} from "../redux/action";
 import { useDispatch, useSelector } from "react-redux";
 import { ResultCard } from "./ResultCard";
 
 export const Home = () => {
-  const [city, setCity] = useState("");
+  const [gymName, setgymName] = useState("");
 
   const dispatch = useDispatch();
   const { nearByGym, isLoading, isError } = useSelector((state) => state);
 
   useEffect(() => {
     initGeolocation();
-    console.log(nearByGym);
+    // setdata(nearByGym);
   }, []);
-
-  const handleLocation = () => {
-    initGeolocation();
-  };
 
   function initGeolocation() {
     if (navigator.geolocation) {
@@ -39,8 +35,22 @@ export const Home = () => {
     getData(dispatch, payload);
   }
 
+  const searchGym = (e) => {
+    setgymName(e.target.value);
+    let str = gymName.toLowerCase()
+    if (gymName.length > 2) {
+      let filterdata = nearByGym.filter((elem) =>
+        elem.gym_name.toLowerCase().includes(str)
+      );
+      dispatch({
+        type:SEARCH,
+        payload:filterdata
+      })
+    }
+  };
+
   const handleSelect = (e) => {
-    const { name, value } = e.target;
+    const {value } = e.target;
     getBycity(dispatch, value);
   };
 
@@ -68,13 +78,13 @@ export const Home = () => {
         <input
           type="text"
           placeholder="Search gym name here"
-          value={city}
-          onChange={(e) => setCity(e.target.value)}
+          value={gymName}
+          onChange={searchGym}
         />
         <i
           className="fa-solid fa-location-dot"
           id={styles.location}
-          onClick={handleLocation}
+          onClick={()=>initGeolocation()}
         ></i>
         <button>Clear</button>
       </div>
@@ -82,7 +92,7 @@ export const Home = () => {
         <div className={styles.search__filter}>
           <div className={styles.filter_head}>
             <h1>Filter</h1>
-            <button>Reset</button>
+            <button onClick={initGeolocation}>Reset</button>
           </div>
           <div>
             <p>Location</p>

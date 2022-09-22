@@ -1,5 +1,6 @@
 import axios from "axios";
 
+export const SEARCH = "SEARCH"
 export const GET_DATA = "GET_DATA";
 export const GET_DATA_LOADING = "GET_DATA_LOADING";
 export const GET_DATA_ERR = "GET_DATA_ERR";
@@ -45,10 +46,11 @@ export const getBycity = (dispatch, city) => {
   axios
     .get(`${baseUrl}/gym/places`)
     .then(({ data }) => {
+      console.log(data)
       if (data.status) {
         dispatch({
           type: GET_DATA,
-          payload: data.data,
+          payload: data,
         });
       } else {
         dispatch({

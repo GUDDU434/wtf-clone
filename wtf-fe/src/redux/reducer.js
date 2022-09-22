@@ -5,6 +5,7 @@ import {
   GET_DATA_LOADING_PLAN,
   GET_GYM_DETAILS,
   GET_GYM_PLAN,
+  SEARCH,
 } from "./action";
 
 const initState = {
@@ -38,6 +39,14 @@ export const reducer = (state = initState, { type, payload }) => {
         ...state,
         nearByGym: payload.data,
         terms: payload.terms,
+        isLoading: false,
+        isError: false,
+      };
+    }
+    case SEARCH: {
+      return {
+        ...state,
+        nearByGym: payload,
         isLoading: false,
         isError: false,
       };

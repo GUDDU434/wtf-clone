@@ -1,6 +1,6 @@
 .gymImageSlider {
-  /* border: solid; */
   height: 75vh;
+  background-color: rgb(39, 39, 39);
 }
 .backBtn {
   position: absolute;
@@ -16,6 +16,7 @@
 .backBtn button {
   background: transparent;
   color: white;
+  border: none;
 }
 
 .bodyGymdetails {
